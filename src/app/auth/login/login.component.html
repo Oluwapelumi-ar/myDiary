@@ -1,0 +1,32 @@
+<!-- Login  Form -->
+<section class="sign-in">
+  <div class="container">
+      <div class="signin-content">
+          <div class="signin-image">
+              <figure><img src="assets/images/signin-image.jpg" alt="sing up image"></figure>
+              <a routerLink='' class="signup-image-link">Create an account</a>
+          </div>
+
+          <div class="signin-form">
+              <h2 class="form-title">Login</h2>
+              <form class="register-form" id="login-form" [formGroup]="loginForm">
+                  <div class="form-group">
+                      <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                      <input class="form-control" type="text" name="your_name" id="your_name" placeholder="Your Email" formControlName="email" [class.is-invalid]="
+                      !loginForm.get('email')?.valid && loginForm.get('email')?.touched
+                      " />
+                  </div>
+                  <div class="form-group">
+                      <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                      <input class="form-control" type="password" name="your_pass" id="your_pass" placeholder="Password" formControlName="password" [class.is-invalid]="
+                      !loginForm.get('password')?.valid && loginForm.get('password')?.touched
+                      "/>
+                  </div>
+                  <div class="form-group form-button">
+                      <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" routerLink="/home" [disabled]="loginForm.invalid"/>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>

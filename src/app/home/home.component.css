@@ -1,0 +1,92 @@
+.cards {
+  margin-top:10px;
+}
+.card {
+  border-radius: 10px;
+  padding:5px 10px 20px 20px;
+  border: none;
+}
+.card-one {
+  background-color:rgb(240,249,255,255)
+}
+.card-two {
+  background-color: rgb(255,246,251);
+}
+.card-three {
+  background-color: rgb(68, 58, 59, 0.1);
+}
+.card-four {
+  background-color: rgb(193, 180, 209,0.2);
+}
+.card-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bold;
+}
+.card-text {
+  font-family: 'Poppins', sans-serif;
+  color:rgb(66,66,66);
+}
+
+
+.fab-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  user-select: none;
+  position: absolute;
+  bottom: 30px; right: 30px;
+  }
+
+  .fab:hover {
+    background-color: rgb(93, 95, 236);
+  }
+
+  .fab {
+    background-color: blue;
+    position: relative;
+    height: 70px; width: 70px;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  /* ::before {
+    content: " ";
+    position: absolute;
+    bottom: 0; right: 0;
+    height: 35px; width: 35px;
+    background-color: inherit;
+    border-radius: 0 0 10px 0;
+    z-index: -1;
+  } */
+
+  .fab-content {
+    display: flex;
+    align-items: center; justify-content: center;
+    height: 100%; width: 100%;
+    border-radius: 50%;
+  }
+
+  .fa-plus {
+    color:white;
+    font-size: 1.5rem;
+  }
+
+  .save-btn {
+    background-color: blue;
+    color:white;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  textarea {
+    outline:aquamarine;
+    overflow: auto;
+    resize: none;
+  }
+
+  .title {
+    resize: none;
+  }
+
+
+  

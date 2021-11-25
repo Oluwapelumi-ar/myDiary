@@ -1,0 +1,55 @@
+<!-- Sign up form -->
+<section class="signup">
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Sign up</h2>
+                <form class="register-form" id="register-form" [formGroup]="signupForm">
+                    <div class="form-group">
+                        <label for="name"><i class=""></i></label>
+                        <input class="form-control" formControlName="name" type="text" placeholder="Your Name" [class.is-invalid]="
+                        !signupForm.get('name')?.valid && signupForm.get('name')?.touched
+                        "/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class=""></i></label>
+                        <input class="form-control" formControlName="email" type="email" placeholder="Your Email" [class.is-invalid]="
+                        !signupForm.get('email')?.valid && signupForm.get('email')?.touched
+                        " />
+                        <span class="" *ngIf="
+                        !signupForm.get('email')?.valid && signupForm.get('email')?.touched
+                        ">
+                            Valid Email is Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class=""></i></label>
+                        <input class="form-control" formControlName="password" type="password" placeholder="Password" [class.is-invalid]="
+                        !signupForm.get('password')?.valid && signupForm.get('password')?.touched
+                        "/>
+                    </div>
+                    <div class="form-group">
+                        <label for="re-pass"><i class=""></i></label>
+                        <input class="form-control" formControlName="confirmPassword" type="password"
+                            placeholder="Repeat your password"  [class.is-invalid]="
+                            !signupForm.get('password')?.valid && signupForm.get('password')?.touched
+                            "/>
+                            <span
+                        *ngIf="!signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.notEqual && !signupForm.get('confirmPassword')?.errors?.required">
+                        Password does not match
+                    </span>  
+                    </div>
+                        
+                        <div class="form-group form-button">
+                            <input type="button" class="form-submit" routerLink="/login" [disabled]="signupForm.invalid"  value='Register'/>
+                            <div class="text-danger" *ngIf="signupForm.invalid && signupForm.touched">Fill in all details</div>
+                        </div>
+                </form>
+            </div>
+            <div class="signup-image">
+                <figure><img src="assets/images/signup-image.jpg" alt="sing up image"></figure>
+                <a routerLink="/login" class="signup-image-link">I have an account</a>
+            </div>
+        </div>
+    </div>
+</section>
