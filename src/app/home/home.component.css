@@ -21,6 +21,7 @@
 .card-title {
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: bold;
+  font-size: 1rem;
 }
 .card-text {
   font-family: 'Poppins', sans-serif;

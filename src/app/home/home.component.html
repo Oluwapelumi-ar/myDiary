@@ -17,60 +17,51 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
-      <textarea name="" id="title" cols="60" rows="1" placeholder="A title for your thoughts"></textarea>
-      <textarea rows="4" cols="60" placeholder="Write how you feel" ></textarea>
+    <form [formGroup]="diaryForm">
+      <textarea name="" id="title" cols="60" rows="1" placeholder="A title for your thoughts" class="form-control" formControlName="title" #title></textarea>
+      <textarea rows="4" cols="60" placeholder="Write how you feel" class="form-control" formControlName="text" #text></textarea>
     </form>
     
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline save-btn" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-outline save-btn" (click)="onSave()">Save</button>
+  </div>
+</ng-template>
+
+<!-- Edit Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Pen down your thoughts</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="diaryForm" >
+      <textarea name="" id="title" cols="60" rows="1" placeholder="A title for your thoughts" class="form-control" formControlName="title" #title value={{editData.title}}></textarea>
+      <textarea rows="4" cols="60" placeholder="Write how you feel" class="form-control" formControlName="text"  value={{editData.text}}></textarea>
+    </form>
+    
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline save-btn" (click)="onSave()">Save</button>
   </div>
 </ng-template>
 
 <!-- Cards -->
-<div class="row row-cols-1 row-cols-md-4 g-4 container-fluid cards">
-  <div class="col">
-    <div class="card card-one">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text d-inline-block text-truncate" style="max-width: 150px;">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card card-two">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text d-inline-block text-truncate" style="max-width: 150px;">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card card-three">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text d-inline-block text-truncate" style="max-width: 150px;">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card card-four">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text d-inline-block text-truncate" style="max-width: 150px;">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card card-two">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text d-inline-block text-truncate" style="max-width: 150px;">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-4 g-4 cards">
+    <div class="col" *ngFor="let diary of diaries; let i = index" >
+      <div class="card card-one" [style.background-color] = "i > 2? 'rgb(255,246,251)':'rgb(255,246,251)'" (click)="onEdit(title)">
+        <div class="card-body">
+          <h5 class="card-title">{{diary.title}}</h5>
+          <p class="card-text d-inline-block text-truncate" style="max-width: 150px;">{{diary.text}}</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 
