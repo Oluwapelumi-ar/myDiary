@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   modalReference:any;
   editData:any;
   diaries = [
-    {title:'My Boyfriend',text:'He loves me so much but i am not sure i feel the same,i kinda like the idea of him but no him'},
+    {title:'My Boyfriend',text:'He loves me so much but i am not sure i feel the same,i kinda like the idea of him but no him',date:new Date()},
     {title:'My Product Manager',text:'He gives me a lot of work which is sometomes too much but help my growth'},
     {title:'Bad Day',text:'I had my fair share of lagos madness today'},
     {title:'My Boyfriend',text:'He loves me so much but i am not sure i feel the same,i kinda like the idea of him but no him'},
@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit(): void {
+    
     this.diaryForm = new FormGroup({
       title:new FormControl(''),
       text:new FormControl('')
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit {
 
   onSave() {
     this.diaries.push(this.diaryForm.value)
+    this.diaryForm.reset();
     this.modalReference.close();
   }
 

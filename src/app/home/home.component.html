@@ -1,9 +1,9 @@
 <app-header></app-header>
 <!-- Fab Button -->
-<div class="fab-container">
+<div class="fab-container"  (click)="open(content)">
   <div class="fab shadow">
     <div class="fab-content">
-      <span class="" (click)="open(content)"><i class="fas fa-plus "></i></span>
+      <span class=""><i class="fas fa-plus "></i></span>
     </div>
   </div>
 </div>
@@ -52,7 +52,9 @@
 <div class="container">
   <div class="row row-cols-1 row-cols-md-4 g-4 cards">
     <div class="col" *ngFor="let diary of diaries; let i = index" >
-      <div class="card card-one" [style.background-color] = "i > 2? 'rgb(255,246,251)':'rgb(255,246,251)'" (click)="onEdit(title)">
+      <div class="card card-one" 
+      [style.background-color] = "i%5 === 3 ?'rgb(255,246,251)':i % 3 == 1?'rgb(240,249,255,255)':'rgb(68, 58, 59, 0.1)'" 
+      (click)="onEdit(title)">
         <div class="card-body">
           <h5 class="card-title">{{diary.title}}</h5>
           <p class="card-text d-inline-block text-truncate" style="max-width: 150px;">{{diary.text}}</p>
